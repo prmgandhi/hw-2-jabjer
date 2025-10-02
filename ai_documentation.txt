@@ -1,0 +1,102 @@
+In this assignment, I used ChatGPT a little bit, primarily for explaining different commands. The following are my prompts and answers from the LLM.
+
+Prompt 1:
+    What is what in this command: git tag -a ver0 -m"Release version 0"?
+
+Answer 1:
+    Let me break down that command for you:
+    
+    git tag -a v1.0 -m "First version with GW150914 data"
+    
+    
+    git tag → creates a tag.
+    
+    -a → means annotated tag (it stores tagger name, email, date, and a message).
+    
+    v1.0 → the name of the tag (you choose this; often version-like).
+    
+    -m "First version with GW150914 data" → the message attached to the tag (like a commit message, but for the tag).
+
+
+Prompt 2: 
+    How do i know if a tag is shown correctly in Github?
+
+Answer 2:
+    Go to your repo page.
+
+    Click on “Tags” (it’s under the “Releases” section).
+    
+    Or from the command line, fetch and list remote tags:
+    
+    git fetch --tags
+    git tag -l
+    
+    
+    If you pushed with git push origin --tags, you should see it both locally and on GitHub.
+
+
+Prompt 3:
+    How can i see the Python version used?
+
+Answer 3:
+    In your notebook, just run this in a cell:
+
+    import sys
+    print(sys.version)
+    
+    
+    That will give you the full version (e.g. 3.10.12).
+    
+    Or shorter:
+    
+    !python --version
+
+
+Prompt 4:
+    I get the following error. What is the problem?: (main)jupyter-jaer21ab[hw-2-jabjer]> conda env create -f environment.yml Channels: - conda-forge - nodefaults - defaults Platform: linux-64 Collecting package metadata (repodata.json): done Solving environment: failed PackagesNotFoundError: The following packages are not available from current channels: - json=2.0* Current channels: - https://conda.anaconda.org/conda-forge - https://conda.anaconda.org/nodefaults - https://repo.anaconda.com/pkgs/main - https://repo.anaconda.com/pkgs/r To search for alternate channels that may provide the conda package you're looking for, navigate to https://anaconda.org and use the search bar at the top of the page.
+
+Answer 4:
+    That error makes sense — json is not a package you can install with conda. It’s part of the Python standard library, so you already get it automatically with Python.
+
+    The fix: simply remove json=2.0 from your environment.yml.
+
+
+Prompt 5:
+    Can i push a tag to the current version of my branch without pushing anything else?
+
+Answer 5:
+    Yes — you can push just the tag without pushing other commits.
+
+    Here’s how:
+    
+    Create the tag (if you haven’t already):
+    
+    git tag -a v1.1 -m "Some message"
+    
+    
+    Push only that tag:
+    
+    git push origin v1.1
+    
+    
+    That sends just the tag v1.1 to GitHub, without touching other branches.
+
+
+Prompt 6:
+    Where do i find the link for making a binder badge in Jupyter?
+
+Answer 6:
+    Here’s how you find the Binder link:
+
+    Go to https://mybinder.org.
+    
+    In the box “GitHub repository name or URL”, paste your repo’s GitHub URL (e.g. https://github.com/ucb-stat-159-f25/hw-2-jabjer).
+    
+    Choose the branch (probably main).
+    
+    Leave the rest as default and click Launch.
+    
+    When it builds, Binder will open a session.
+    
+    At that point, copy the URL from your browser’s address bar.
+    
